@@ -1,6 +1,10 @@
 import json
 
-#GLOBAL SETTINGS
+# Item Recommender
+# source: https://github.com/ai-society/ai-society.github.io
+# ==============================================================================
+
+
 BOOK_RATINGS = 'data.json'
 
 data = json.load(open(BOOK_RATINGS))
@@ -22,4 +26,35 @@ def euclidean_similarity(person1, person2):
 	# similarity score
 	return 1 / (1 + sum(distance))
 
+def recommend(person, bound, similarity=euclidean_similarity):
+	scores = [(similarity(person, other), other) for other in data if other != person]
+
+	scores.sort()
+	scores.reverse()
+	scores = scores[0:bound]
+
+	# print (scores)
+
+	recomms = {}
+
+	for sim, other in scores:
+		ranked = data[other]
+
+		for itm in ranked:
+			if itm not in data[person]:
+				weight = sim * ranked[itm]
+
+				if itm in recomms:
+					s, weights = recomms[itm]
+					recomms[itm] = (s + sim, weights + [weight])
+				else:
+					recomms[itm] = (sim, [weight])
+
+	for r in recomms:
+		sim, item = recomms[r]
+		recomms[r] = sum(item) / sim
+
+	return recomms
+
 print euclidean_similarity("Alan Perlis", "Marvin Minsky")
+print recommend("Alan Perlis", 4)
