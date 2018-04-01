@@ -1,20 +1,9 @@
 
 
-__________                                                       .___       __  .__               
-\______   \ ____   ____  ____   _____   _____   ____   ____    __| _/____ _/  |_|__| ____   ____  
- |       _// __ \_/ ___\/  _ \ /     \ /     \_/ __ \ /    \  / __ |\__  \\   __\  |/  _ \ /    \ 
- |    |   \  ___/\  \__(  <_> )  Y Y  \  Y Y  \  ___/|   |  \/ /_/ | / __ \|  | |  (  <_> )   |  \
- |____|_  /\___  >\___  >____/|__|_|  /__|_|  /\___  >___|  /\____ |(____  /__| |__|\____/|___|  /
-        \/     \/     \/            \/      \/     \/     \/      \/     \/                    \/ 
-  _________                  .__                                                                  
- /   _____/ ______________  _|__| ____  ____                                                      
- \_____  \_/ __ \_  __ \  \/ /  |/ ___\/ __ \                                                     
- /        \  ___/|  | \/\   /|  \  \__\  ___/                                                     
-/_______  /\___  >__|    \_/ |__|\___  >___  >                                                    
-        \/     \/                    \/    \/                                                     
-By José ARS
 
-Sinopsis (una pequeña historia con algo de ficcion)
+# Recomendador de Libros                
+
+####  Sinopsis (una pequeña historia con algo de ficcion)
 
 Demasiados libros en el mundo, el mundo escacea de un sistema capaz de
 recomendar. Volumenes de libros son publicados cada año complicando
@@ -23,27 +12,27 @@ pierda tiempo buscando articulos y reseñas. Lo que hubiera tomado unos
 minutos se convierte en una investigacion de tiempo completo.
 
 
-Objetivo
+#### Objetivo
 Diseña un recomendador web de libros donde el usuario pueda ver sugerencias
-disponibles dado un usuario. Se proveera un banco de datos en formato JSON.
-El formato es el siguiente:
+disponibles dado un usuario. Se proveera un banco de datos en formato JSON. El formato es el siguiente:
 
+```
 	{
-		nombre_de_usuario : {
-			libro1 : calification con puntaje 0 como el mas bajo y 5 como el mas alto. Valor es de tipo float
-			libro2 : 4
-			libro3 : 4.3
+		“nombre_de_usuario” : {
+			“libro1” : 3,
+			“libro2” : 4,
+			“libro3” : 4.3
 		}
 		...
 		....
 	}
-
-CLIENTE
+```
+#### Cliente
 El cliente sera web utilizandose HTML, Javascript, y CSS. 
 Usaremos Bootstrap como soporte de widgets facilitando el diseño. Este sera la ventana al mundo donde
 usuarios podran interactuar con tu servicio.
 
-SERVICIO DE RECOMENDACION
+#### Servicio de Recomendación
 El servidor sera escrito en python. Utilizaremos la libreria FLASK para configurar
 el servidor. Tendremos la liberatad de usar librerias de procesamiento de datos como
 SciPy y Pandas para facilitar operaciones. Pero, que es un servidor? Un servidor es un programa con la abilidad
@@ -53,19 +42,18 @@ BASE DE DATOS
 Usualmente un servicio de datos forma parte del stack. Este permite consultar subset de datos
 dado un criterio usando lenguajes de datos como SQL
 
-e.g.
-	SELECT gpa, last_name from Student;
+e.g. `SELECT gpa, last_name from Student;`
 
 Pero para propositos academicos, usaremos un archivo JSON cual guardara la data motivando esta
 aplicacion.
 
-Preguntas??
+Preguntas?
 
-Incluye
-Una version minima de un servidor. Tambien se incluye Twitter Bootstrap para el diseño del cliente web.
+Incluye una version minima de un servidor. Tambien se incluye Twitter Bootstrap para el diseño del cliente web.
 
 Instrucciones para correr el servidor
 
 1) Saca el repo de http://github.com
 2) Entra al folder del repo.
-3) Corre el comando python panda-app.py
+3) Instala dependencias usando pip install -r requirements.txt
+4) Corre el comando python panda-app.py
