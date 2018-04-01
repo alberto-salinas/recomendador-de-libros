@@ -13,7 +13,7 @@ class Book:
 		self.rating = rating
 
 @app.route("/", methods=["GET", "POST"])
-def hello():
+def index():
 
 	if session.get("logged_in"):
 		return redirect(url_for("userBookView"))
@@ -36,7 +36,7 @@ def userBookView():
 
 	if not session.get("logged_in"):
 		print "testing"
-		return redirect(url_for("hello"))
+		return redirect(url_for("index"))
 	print "reneder my books"
 	books = getUserBooks(session.get("currentUser"))
 	return render_template("userBooks.html", 
