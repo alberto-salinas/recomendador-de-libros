@@ -1,7 +1,7 @@
 
 
 
-# Recomendador de Libros                
+# Recomendador de Libros - Project 1                
 
 ####  Sinopsis (una pequeña historia con algo de ficcion)
 
